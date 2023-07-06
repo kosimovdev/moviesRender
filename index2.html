@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .wrapper {
+      background-color: green;
+      padding: 6px;
+      min-height: 300px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+    }
+    .item {
+      background-color: red;
+      padding: 50px;
+    }
+  </style>
+  <body>
+    <div class="wrapper bg-green-500 p-5">
+      <div class="item">item-1</div>
+      <div class="item">item-2</div>
+      <div class="item">item-3</div>
+      <div class="item">item-4</div>
+    </div>
+  </body>
+  <script>
+    let item = document.querySelectorAll(".item");
+    let wrapper = document.querySelector(".wrapper");
+    for(i = 0; i<10; i++) {
+
+      let div = document.createElement("div");
+      div.dataset.id=`AB${Math.ceil(Math.random()*10)*Math.random()*2 +i}`
+      div.classList.add("item");
+      div.textContent = `item-${5+i}`;
+      document.querySelector(".wrapper").append(div);
+    }
+
+    // const el = document.createElement('div');
+
+    // el.dataset.info= "bu div element"
+    // console.log(el)
+
+    wrapper.addEventListener("click", (e) => {
+      // console.log(e.target);
+      if (e.target.classList.contains("item")) {
+        console.log(e.target)
+        let data = e.target.getAttribute('data-id')
+        alert(data)
+      }
+    });
+
+    // item.forEach((el) => {
+    //   // console.log(el)
+    //   el.addEventListener('click', (e) => {
+
+    //   })
+    // })
+  </script>
+</html>
